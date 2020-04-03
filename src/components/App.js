@@ -81,27 +81,27 @@ class App extends Component {
     return (
       <div id="page-container">
         <header id="header">
-          <h1>Todo List</h1>
-          <p>{todoActiveCount} active todo(s)</p>
+          <h1>To-do List</h1>
+          <p>{todoActiveCount} active to-do(s)</p>
         </header>
         <nav id="nav">
           <FilterButton
             filter={FILTERS.SHOW_ALL}
             onFilterClick={this.handleFilterClick}
           >
-            All
+            View All
             </FilterButton>
           <FilterButton
             filter={FILTERS.SHOW_ACTIVE}
             onFilterClick={this.handleFilterClick}
           >
-            Active
+            View Active
             </FilterButton>
           <FilterButton
             filter={FILTERS.SHOW_COMPLETED}
             onFilterClick={this.handleFilterClick}
           >
-            Completed
+            View Completed
             </FilterButton>
         </nav>
         <main id="main">

@@ -27,6 +27,8 @@ export class TodoForm extends Component {
           type="text"
           value={this.state.content}
           onChange={this.handleChange}
+          placeholder="Enter a new to-do..."
+          required
         />
         <button type="submit">Add</button>
       </form>

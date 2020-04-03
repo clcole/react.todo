@@ -52,20 +52,26 @@ body {
 }
 
 .todo-form {
-  margin-top: 20px;
+  display: flex;
+  margin: 20px 5px 0 5px;
 }
 
 .todo-form input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   border: 1px solid #00B4FF;
   color: #515151;
   font-size: 1.1em;
 }
 
+.todo-form input:required {
+  box-shadow: none;
+}
+
 .todo-form button {
-  width: 100%;
-  padding: 12px 0;
+  width: 19%;
+  margin-left: auto;
+  padding: 11px 0;
   border: none;
   cursor: pointer;
   color: #FFF;
@@ -78,13 +84,13 @@ body {
 }
 
 .todo-table {
-  margin-top: 20px;
+  margin: 20px 5px 0 5px;
 }
 
 .todo-row {
   display: flex;
-  margin-top: 10px;
-  padding: 20px;
+  margin-top: 5px;
+  padding: 15px;
   color: #515151;
   background-color: #EEE;
   font-size: 1.1em;
@@ -98,30 +104,28 @@ body {
 }
 
 .todo-row button {
+  width: 10%;
   border: none;
   cursor: pointer;
   background-color: transparent;
   font-size: 1.1em;
 }
 
-.todo-row button:hover {
-  color: #00B4FF;
-  background-color: transparent;
-}
-
 .todo-row .active-button {
-  width: 10%;
   color: #CCC;
 }
 
 .todo-row .completed-button {
-  width: 10%;
-  color: #515151;
+  color: lime;
 }
 
 .todo-row .delete-button {
-  width: 10%;
   color: #515151;
+}
+
+.todo-row .delete-button:hover {
+  color: #00B4FF;
+  background-color: transparent;
 }
 
 .todo-row::after {
@@ -138,7 +142,7 @@ body {
   background-color: #515151;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   #nav {   
     flex-direction: row;
     justify-content: center;
