@@ -72,17 +72,23 @@ class App extends Component {
   //   localStorage.removeItem("clc-react-todo-app"); 
   // };
 
-  render() {
-    let todoActiveCount = 0;
+  getHeaderMessage = () => {
+    let activeCount = 0;
     this.state.todos.forEach(todo => {
-      if(todo.active) todoActiveCount++;
+      if(todo.active) activeCount++;
     });
 
+    return activeCount > 0 
+      ? `You have ${activeCount} active to-do(s)` 
+      : "You're all caught-up!";
+  }
+
+  render() {
     return (
       <div id="page-container">
         <header id="header">
           <h1>To-do List</h1>
-          <p>{todoActiveCount} active to-do(s)</p>
+          <p>{this.getHeaderMessage()}</p>
         </header>
         <nav id="nav">
           <FilterButton
