@@ -62,6 +62,7 @@ body {
   border: 1px solid #00B4FF;
   color: #515151;
   font-size: 1.1em;
+  letter-spacing: 1px;
 }
 
 .todo-form input:required {
@@ -90,11 +91,10 @@ body {
 .todo-row {
   display: flex;
   margin-top: 5px;
-  padding: 15px;
+  padding: 12px;
   color: #515151;
   background-color: #EEE;
   font-size: 1.1em;
-  font-weight: bold;
   letter-spacing: 1px;
   word-wrap: break-word;
 }
@@ -139,7 +139,12 @@ body {
   height: 50px;
   position: absolute;
   bottom: 0;
+  color: #EEE;
   background-color: #515151;
+  font-size: 1em;
+  font-variant: small-caps; 
+  font-weight: normal;
+  text-align: center;
 }
 
 @media screen and (min-width: 800px) {

@@ -121,7 +121,7 @@ class App extends Component {
             onDeleteClick={this.handleDeleteClick}
           />
         </main>
-        <footer id="footer"></footer>
+        <footer id="footer"><p>CLCole</p></footer>
       </div>
     );
   }
