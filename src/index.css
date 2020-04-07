@@ -47,16 +47,22 @@ body {
 
 #main {
   max-width: 900px;
-  margin: 0 auto;
+  margin: auto;
   padding-bottom: 100px; /*footer height x2*/
 }
 
-.todo-form {
+.todo-form-add {
   display: flex;
-  margin: 20px 5px 0 5px;
+  margin: 20px 5px 0;
 }
 
-.todo-form input {
+.todo-form-edit {
+  display: flex;
+  margin-top: 5px;
+}
+
+.todo-form-add input,
+.todo-form-edit input {
   width: 80%;
   padding: 10px;
   border: 1px solid #00B4FF;
@@ -65,11 +71,13 @@ body {
   letter-spacing: 1px;
 }
 
-.todo-form input:required {
+.todo-form-add input:required,
+.todo-form-edit input:required {
   box-shadow: none;
 }
 
-.todo-form button {
+.todo-form-add button,
+.todo-form-edit button {
   width: 19%;
   margin-left: auto;
   padding: 11px 0;
@@ -79,13 +87,14 @@ body {
   background-color: #00B4FF;
   font-size: 1.1em;
 }
-.todo-form button:hover {
+.todo-form-add button:hover,
+.todo-form-edit button:hover {
   color: #00B4FF;
   background-color: #EEE;
 }
 
 .todo-table {
-  margin: 20px 5px 0 5px;
+  margin: 20px 5px 0;
 }
 
 .todo-row {
@@ -100,13 +109,18 @@ body {
 }
 
 .todo-row .todo-content {
-  width: 80%;
+  width: 70%;
+}
+
+.todo-row .todo-content-completed {
+  text-decoration: line-through;
 }
 
 .todo-row button {
   width: 10%;
   border: none;
   cursor: pointer;
+  color: #515151;
   background-color: transparent;
   font-size: 1.1em;
 }
@@ -119,19 +133,10 @@ body {
   color: lime;
 }
 
-.todo-row .delete-button {
-  color: #515151;
-}
-
-.todo-row .delete-button:hover {
+.todo-row .delete-button:hover,
+.todo-row .edit-button:hover {
   color: #00B4FF;
   background-color: transparent;
-}
-
-.todo-row::after {
-  display: block;
-  content: "";
-  clear: both;
 }
 
 #footer {

@@ -3,9 +3,9 @@ import React, { Component } from "react";
 export class TodoForm extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      content: ""
-    };
+    this.state = this.props.todo.content 
+      ? { content: this.props.todo.content }
+      : { content: "" };
   }
 
   handleChange = (e) => {
@@ -16,13 +16,13 @@ export class TodoForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onAddSubmit(this.state.content);
+    this.props.onSubmit({...this.props.todo, content: this.state.content});
     this.setState({content: ""});
   }
 
   render() {
     return (
-      <form className="todo-form" onSubmit={this.handleSubmit}>
+      <form className={this.props.className} onSubmit={this.handleSubmit}>
         <input
           type="text"
           value={this.state.content}
@@ -30,7 +30,7 @@ export class TodoForm extends Component {
           placeholder="Enter a new to-do..."
           required
         />
-        <button type="submit">Add</button>
+        <button type="submit">{this.props.children}</button>
       </form>
     );
   }

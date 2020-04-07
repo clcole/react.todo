@@ -5,10 +5,10 @@ import { FilterButton } from "./FilterButton";
 import { FILTERS } from "../constants/filters";
 
 // const TODOS = [
-//   { id: 100, content: "todo1", active: true },
-//   { id: 200, content: "todo2", active: true },
-//   { id: 300, content: "todo3", active: false },
-//   { id: 400, content: "todo4", active: true }
+//   { id: 100, content: "todo1", active: true, edit: false },
+//   { id: 200, content: "todo2", active: true, edit: false },
+//   { id: 300, content: "todo3", active: false, edit: false },
+//   { id: 400, content: "todo4", active: true, edit: false }
 // ];
 
 class App extends Component {
@@ -36,10 +36,11 @@ class App extends Component {
     }, this.setLocalStorage);
   }
 
-  handleAddSubmit = (content) => {
+  handleAddSubmit = ({content}) => {
     const id = this.state.nextId;
+    const todo = { id, content, active: true, edit: false};
     this.setState(state => {
-      const todos = [...state.todos, { id, content, active: true }];
+      const todos = [...state.todos, todo];
       return { todos, nextId: id + 1 };
     }, this.setLocalStorage);
   }
@@ -48,6 +49,24 @@ class App extends Component {
     this.setState(state => {
       const todos = state.todos.map(todo => (
         id === todo.id ? { ...todo, active: !todo.active } : todo
+      ));
+      return { todos };
+    }, this.setLocalStorage);
+  }
+
+  handleEditClick = (id) => {
+    this.setState(state => {
+      const todos = state.todos.map(todo => (
+        id === todo.id ? { ...todo, edit: true } : todo
+      ));
+      return { todos };
+    });
+  }
+
+  handleEditSubmit = ({id, content}) => {
+    this.setState(state => {
+      const todos = state.todos.map(todo => (
+        id === todo.id ? { ...todo, content, edit: false } : todo
       ));
       return { todos };
     }, this.setLocalStorage);
@@ -78,9 +97,10 @@ class App extends Component {
       if(todo.active) activeCount++;
     });
 
-    return activeCount > 0 
-      ? `You have ${activeCount} active to-do(s)` 
-      : "You're all caught-up!";
+    if(activeCount === 0) return "You're all caught-up!";
+    if(activeCount === 1) return "You have 1 active to-do";
+
+    return `You have ${activeCount} active to-do's`;
   }
 
   render() {
@@ -96,28 +116,34 @@ class App extends Component {
             onFilterClick={this.handleFilterClick}
           >
             View All
-            </FilterButton>
+          </FilterButton>
           <FilterButton
             filter={FILTERS.SHOW_ACTIVE}
             onFilterClick={this.handleFilterClick}
           >
             View Active
-            </FilterButton>
+          </FilterButton>
           <FilterButton
             filter={FILTERS.SHOW_COMPLETED}
             onFilterClick={this.handleFilterClick}
           >
             View Completed
-            </FilterButton>
+          </FilterButton>
         </nav>
         <main id="main">
           <TodoForm
-            onAddSubmit={this.handleAddSubmit}
-          />
+            todo={{}}
+            className="todo-form-add"
+            onSubmit={this.handleAddSubmit}
+          >
+            Add
+          </TodoForm>
           <TodoTable
             todos={this.state.todos}
             filter={this.state.visibility}
             onToggleClick={this.handleToggleClick}
+            onEditClick={this.handleEditClick}
+            onEditSubmit={this.handleEditSubmit}
             onDeleteClick={this.handleDeleteClick}
           />
         </main>
