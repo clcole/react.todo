@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #FFF;
+  background-color: #CFBAAB;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -17,8 +17,8 @@ body {
 #header {
   width: 100%;
   padding: 1px 0;
-  color: #FFF;
-  background-color: #515151;
+  color: #DECDC1;
+  background-color: #0D030B;
   font-size: 1.2em;
   font-variant: small-caps; 
   font-weight: normal;
@@ -28,21 +28,21 @@ body {
 #nav {
   display: flex;
   flex-direction: column;
-  background-color: #00B4FF;
+  background-color: #7A6A5C;
 }
 
 #nav .filter-button {
   padding: 12px 0;
   border: none;
   cursor: pointer;
-  color: #FFF;
-  background-color: #00B4FF;
+  color: #DECDC1;
+  background-color: #7A6A5C;
   font-size: 1.1em;
 }
 
 #nav .filter-button:hover {
-  color: #00B4FF;
-  background-color: #EEE;
+  color: #DECDC1;
+  background-color: #0D030B;
 }
 
 #main {
@@ -65,8 +65,9 @@ body {
 .todo-form-edit input {
   width: 80%;
   padding: 10px;
-  border: 1px solid #00B4FF;
-  color: #515151;
+  border: 1px solid #643C4B;
+  color: #0D030B;
+  background-color: #DECDC1;
   font-size: 1.1em;
   letter-spacing: 1px;
 }
@@ -83,14 +84,14 @@ body {
   padding: 11px 0;
   border: none;
   cursor: pointer;
-  color: #FFF;
-  background-color: #00B4FF;
+  color: #DECDC1;
+  background-color: #643C4B;
   font-size: 1.1em;
 }
 .todo-form-add button:hover,
 .todo-form-edit button:hover {
-  color: #00B4FF;
-  background-color: #EEE;
+  color: #DECDC1;
+  background-color: #7A6A5C;
 }
 
 .todo-table {
@@ -101,8 +102,8 @@ body {
   display: flex;
   margin-top: 5px;
   padding: 12px;
-  color: #515151;
-  background-color: #EEE;
+  color: #0D030B;
+  background-color: #DECDC1;
   font-size: 1.1em;
   letter-spacing: 1px;
   word-wrap: break-word;
@@ -120,22 +121,22 @@ body {
   width: 10%;
   border: none;
   cursor: pointer;
-  color: #515151;
+  color: #0D030B;
   background-color: transparent;
   font-size: 1.1em;
 }
 
 .todo-row .active-button {
-  color: #CCC;
+  color: #0D030B;
 }
 
 .todo-row .completed-button {
-  color: lime;
+  color: #0D030B;
 }
 
 .todo-row .delete-button:hover,
 .todo-row .edit-button:hover {
-  color: #00B4FF;
+  opacity: 0.6;
   background-color: transparent;
 }
 
@@ -144,8 +145,8 @@ body {
   height: 50px;
   position: absolute;
   bottom: 0;
-  color: #EEE;
-  background-color: #515151;
+  color: #DECDC1;
+  background-color: #0D030B;
   font-size: 1em;
   font-variant: small-caps; 
   font-weight: normal;

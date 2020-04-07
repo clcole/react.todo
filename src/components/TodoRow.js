@@ -1,22 +1,27 @@
 import React from "react";
 
 export function TodoRow({ todo, onToggleClick, onEditClick, onDeleteClick }) {
-  const classNameContent = todo.active 
-    ? "todo-content todo-content-active" 
-    : "todo-content todo-content-completed";
-  
-  const classNameButton = todo.active ? "active-button" : "completed-button";
+
+  let classNameContent = "todo-content todo-content-active";
+  let classNameToggleButton = "active-button";
+  let toggleButtonText = <i class="far fa-square"></i>;
+
+  if(!todo.active) {
+    classNameContent = "todo-content todo-content-completed";
+    classNameToggleButton = "completed-button";
+    toggleButtonText = <i class="far fa-check-square"></i>;
+  }
 
   return (
     <div className="todo-row">
       <span className={classNameContent}>{todo.content}</span>
       
       <button
-        className={classNameButton}
+        className={classNameToggleButton}
         type="button"
         onClick={() => onToggleClick(todo.id)}
       >
-        <i className="fas fa-check"></i>
+        {toggleButtonText}
       </button>
       
       <button
